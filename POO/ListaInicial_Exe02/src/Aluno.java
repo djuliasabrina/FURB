@@ -32,10 +32,12 @@ public class Aluno {
 	}
 	
 	public void setNota(float nota) {
-		if(nota < 0 & nota > 10) {
-			System.out.println("Nota inválida...");
-		}else {
-		this.nota = nota;
+		if(nota < 7) {
+			System.out.println("Aluno REPROVADO");
+		}else if(nota >= 7){
+			System.out.println("Aluno APROVADO");
 		}
+		this.nota = nota;
+		
 	}
 }

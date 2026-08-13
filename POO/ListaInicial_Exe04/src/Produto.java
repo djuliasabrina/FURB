@@ -36,6 +36,11 @@ public class Produto {
 	}
 	
 	public void setDisponivel(boolean disponivel) {
+		if(disponivel == false) {
+			System.out.println("Produto indisponível para venda");
+		}else {
+			System.out.println("Produto disponível para venda");
+		}
 		this.disponivel = disponivel;
 	}
 }

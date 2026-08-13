@@ -47,5 +47,11 @@ public class Carro {
 	
 	public void setEstaLigado(boolean estaLigado) {
 		this.estaLigado = estaLigado;
+		
+		if(estaLigado == true) {
+			System.out.println("Carro LIGADO");
+		}else {
+			System.out.println("Carro DESLIGADO");
+		}
 	}
 }
