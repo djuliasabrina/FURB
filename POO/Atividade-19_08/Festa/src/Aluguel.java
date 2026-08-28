@@ -4,7 +4,7 @@ public class Aluguel {
 	private Date data;
 	private int hora_inicio;
 	private int hora_termino;
-	private Tema tema;
+	private Tema temas;
 	private Cliente cliente;
 	private String endereco;
 	
@@ -21,8 +21,8 @@ public class Aluguel {
 		return hora_termino;
 	}
 	
-	public Tema getTema() {
-		return tema;
+	public Tema getTemas() {
+		return temas;
 	}
 	
 	public Cliente getCliente() {
@@ -56,9 +56,9 @@ public class Aluguel {
 		
 	}
 	
-	public void setTema(Tema tema) {
-		if(tema != null) {
-			this.tema = tema;
+	public void setTemas(Tema temas) {
+		if(temas != null) {
+			this.temas = temas;
 		}else {
 			System.out.println("Um tema dever ser informado!");
 		}
