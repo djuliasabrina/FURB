@@ -1,13 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tema {
 
 	private String nome;
 	private String toalha;
 	private float valor_aluguel;
-	private Item[] itens;
+	private List<Item> itens;
+
+	public Tema(){
+		itens = new ArrayList<Item>();
+	}
 
 	// Getters
-	public Item[] getItens() {
+	public List<Item> getItens() {
 		return itens;
 	}
 
@@ -24,7 +30,7 @@ public class Tema {
 	}
 
 	// Setters
-	public void setItens(Item[] itens) {
+	public void setItens(List<Item> itens) {
 		if (itens != null) {
 			this.itens = itens;
 		} else {

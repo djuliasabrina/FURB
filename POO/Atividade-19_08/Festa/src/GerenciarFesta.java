@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -6,23 +8,17 @@ import javax.swing.JOptionPane;
 public class GerenciarFesta {
 
 	private Scanner s;
-	private Cliente[] clientes;
-	private Tema[] temas;
-	private Aluguel[] alugueis;
-	private Item[] itens;
-
-	private int qtdAtualCliente;
-	private int qtdAtualTema;
-	private int qtdAtualAluguel;
-	private int qtdAtualItem;
-	private int qtdAtualToalhas;
+	private List<Cliente> clientes;
+	private List<Tema> temas;
+	private List<Aluguel> alugueis;
+	private List<Item> itens;
 
 	public GerenciarFesta() {
 		s = new Scanner(System.in);
-		clientes = new Cliente[20];
-		temas = new Tema[20];
-		alugueis = new Aluguel[30];
-		itens = new Item[30];
+		clientes = new ArrayList<Cliente>();
+		temas = new ArrayList<Tema>();
+		itens = new ArrayList<Item>();
+		alugueis = new ArrayList<Aluguel>();
 
 		String menuTexto = "1 - Inserir cliente\n"
 				+ "2 - Inserir tema\n"
@@ -36,8 +32,8 @@ public class GerenciarFesta {
 		int opcao = 0;
 
 		do {
-			System.out.println("\nEscola uma opção: \n" + menuTexto + "\nDigite: ");
-			opcao = s.nextInt();
+			String op = JOptionPane.showInputDialog("\nEscola uma opção: \n" + menuTexto + "\nDigite: ");
+			opcao = Integer.parseInt(op);
 
 			switch (opcao) {
 
@@ -85,14 +81,14 @@ public class GerenciarFesta {
 	}
 
 	private void listarItem() {
-		if (qtdAtualItem == 0) {
+		if (itens == null) {
 			JOptionPane.showMessageDialog(null, "Nenhum item cadastrado!", "ERRO", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		for (int i = 0; i < qtdAtualItem; i++) {
+		for (int i = 0; i < itens.size(); i++) {
 			System.out.println();
 			System.out.println("Item " + (i + 1));
-			System.out.println("Nome: " + itens[i].getNome() + "\nQuantidade: " + itens[i].getQtd());
+			System.out.println("Nome: " + itens.get(i).getNome() + "\nQuantidade: " + itens.get(i).getQtd());
 		}
 
 	}
@@ -106,76 +102,70 @@ public class GerenciarFesta {
 		i1.setNome(nome);
 		i1.setQtd(qtd_aux);
 
-		itens[qtdAtualItem] = i1;
-		qtdAtualItem++;
+		itens.add(i1);
 
 	}
 
 	private void listarAluguel() {
-		if (qtdAtualAluguel == 0) {
+		if (alugueis == null) {
 			JOptionPane.showMessageDialog(null, "Nenhum aluguel cadastrado!", "ERRO", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 
 		System.out.println("---LISTANDO ALUGUEIS---");
-		for(int i = 0; i < qtdAtualAluguel; i++){
+		for (int i = 0; i < alugueis.size(); i++) {
 			System.out.println("Aluguel " + (i + 1));
-			System.out.println("Data: " + alugueis[i].getData());
-			System.out.println("Hora de inicio da festa: " + alugueis[i].getHora_inicio());
-			System.out.println("Hora de termino da festa: " + alugueis[i].getHora_termino());
-			System.out.println("Tema: " + alugueis[i].getTemas().getNome());
-			System.out.println("Cliente: " + alugueis[i].getCliente().getNome());
-			System.out.println("Endereço: " + alugueis[i].getEndereco());
+			System.out.println("Data: " + alugueis.get(i).getData());
+			System.out.println("Hora de inicio da festa: " + alugueis.get(i).getHora_inicio());
+			System.out.println("Hora de termino da festa: " + alugueis.get(i).getHora_termino());
+			System.out.println("Tema: " + alugueis.get(i).getTemas());
+			System.out.println("Cliente: " + alugueis.get(i).getCliente());
+			System.out.println("Endereço: " + alugueis.get(i).getEndereco());
 		}
 
 	}
 
 	private void listarTema() {
-		if (qtdAtualTema == 0) {
+		if (temas == null) {
 			JOptionPane.showMessageDialog(null, "Nenhum tema cadastrado!", "ERRO", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
 
 		System.out.println("---LISTANDO TEMAS---");
-		for (int i = 0; i < qtdAtualTema; i++) {
+		for (int i = 0; i < temas.size(); i++) {
 			System.out.println("Tema " + (i + 1));
-			System.out.println("Nome: " + temas[i].getNome() + "\nCor da toalha: " + temas[i].getToalha() +
-					"\nValor do aluguel: " + temas[i].getValor_aluguel() + "\nItens: " + temas[i].getItens());
+			System.out.println("Nome: " + temas.get(i).getNome() + "\nCor da toalha: " + temas.get(i).getToalha() +
+					"\nValor do aluguel: " + temas.get(i).getValor_aluguel() + "\nItens: " + temas.get(i).getItens());
 		}
 
 	}
 
 	private void listarCliente() {
-		if (qtdAtualCliente == 0) {
+		if (clientes == null) {
 			JOptionPane.showMessageDialog(null, "Nenhum cliente cadastrado!", "ERRO", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 
 		System.out.println("---LISTANDO CLIENTES---");
-		for (int i = 0; i < qtdAtualCliente; i++) {
+		for (int i = 0; i < clientes.size(); i++) {
 			System.out.println();
 			System.out.println("Cliente " + (i + 1));
-			System.out.println("Nome: " + clientes[i].getNome() + "\nTelefone: " +
-					clientes[i].getTelefone() + "\nData do cadastro: " + clientes[i].getDataPrimeira());
+			System.out.println("Nome: " + clientes.get(i).getNome() + "\nTelefone: " +
+					clientes.get(i).getTelefone() + "\nData do cadastro: " + clientes.get(i).getDataPrimeira());
 		}
 
 	}
 
 	private void inserirAluguel() {
 		s = new Scanner(System.in);
-		// private Date data;
-		// private int hora_inicio;
-		// private int hora_termino;
-		// private String tema;
-		// private Cliente cliente;
-		// private String endereco;
 
-		if (qtdAtualCliente == 0) {
-			JOptionPane.showMessageDialog(null, "Cliente deve ser cadastrado primeiro!", "ERRO", JOptionPane.ERROR_MESSAGE);
+		if (clientes == null) {
+			JOptionPane.showMessageDialog(null, "Cliente deve ser cadastrado primeiro!", "ERRO",
+					JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 
-		if (qtdAtualTema == 0) {
+		if (temas == null) {
 			JOptionPane.showMessageDialog(null, "Nenhum tema cadastrado!", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 
@@ -186,15 +176,15 @@ public class GerenciarFesta {
 		int hora_t = Integer.parseInt(hora_termino);
 
 		System.out.println("Temas: ");
-		for(int i = 0; i < qtdAtualTema; i++){
-			System.out.println("[" + i + "]" + temas[i].getNome());
+		for (int i = 0; i < temas.size(); i++) {
+			System.out.println("[" + i + "]" + temas.get(i).getNome());
 		}
 		String nomeTema = JOptionPane.showInputDialog("Informe o número do tema: ");
 		int id_nomeTema = Integer.parseInt(nomeTema);
 
 		System.out.println("Clientes: ");
-		for(int j = 0; j < qtdAtualCliente; j++){
-			System.out.println("[" + j + "]" + clientes[j].getNome());
+		for (int j = 0; j < clientes.size(); j++) {
+			System.out.println("[" + j + "]" + clientes.get(j).getNome());
 		}
 		String nomeCliente = JOptionPane.showInputDialog("Informe o número do cliente: ");
 		int id_nomeCliente = Integer.parseInt(nomeCliente);
@@ -205,22 +195,23 @@ public class GerenciarFesta {
 		a1.setData(new Date());
 		a1.setHora_inicio(hora_i);
 		a1.setHora_termino(hora_t);
-		a1.setTemas(temas[id_nomeTema]);
-		a1.setCliente(clientes[id_nomeCliente]);
+		a1.setTemas(temas);
+		a1.setCliente(clientes);
 		a1.setEndereco(endereco);
 
-
-		alugueis[qtdAtualAluguel] = a1;
-		qtdAtualAluguel++;
+		alugueis.add(a1);
 
 	}
 
 	private void inserirTema() {
 		s = new Scanner(System.in);
-		int id_nomeItem;
+		int id_nrItem;
+		List<Item> itensSelecionados = new ArrayList<Item>();
+		int qtdItens_inteiro = 0;
 
-		if (qtdAtualItem == 0) {
-			JOptionPane.showMessageDialog(null, "Item deve ser cadastrado primeiro!", "ERRO", JOptionPane.ERROR_MESSAGE);
+		if (itens == null) {
+			JOptionPane.showMessageDialog(null, "Item deve ser cadastrado primeiro!", "ERRO",
+					JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 
@@ -230,14 +221,20 @@ public class GerenciarFesta {
 		float valor_aluguel = Float.parseFloat(valor);
 
 		System.out.println("Itens disponíveis: ");
-		for (int i = 0; i < qtdAtualItem; i++) {
-			System.out.println("["+ i + "]" + itens[i].getNome());
+		for (int i = 0; i < itens.size(); i++) {
+			System.out.println("[" + i + "]" + itens.get(i).getNome());
 		}
 
 		int op;
 		do {
-			String nomeItem = JOptionPane.showInputDialog("Digite o número do item escolhido: ");
-			id_nomeItem = Integer.parseInt(nomeItem);
+			String nrItem = JOptionPane.showInputDialog("Digite o número do item escolhido: ");
+			id_nrItem = Integer.parseInt(nrItem);
+
+			Item itemEncontrado = itens.get(id_nrItem); //Pega o item escolhido e 
+			itensSelecionados.add(itemEncontrado); //Adiciona na LISTA List<Item> itensSelecionados
+
+			String qtdItens = JOptionPane.showInputDialog("Informe a quantidade do item: ");
+			qtdItens_inteiro = Integer.parseInt(qtdItens);
 
 			op = JOptionPane.showConfirmDialog(null, "Deseja adicionar mais algum item?", "Confirmação",
 					JOptionPane.YES_NO_OPTION);
@@ -250,10 +247,10 @@ public class GerenciarFesta {
 		t1.setNome(nome);
 		t1.setToalha(cor);
 		t1.setValor_aluguel(valor_aluguel);
-		t1.setItens(itens);
+		t1.setItens(itensSelecionados);
+		
 
-		temas[qtdAtualTema] = t1;
-		qtdAtualTema++;
+		temas.add(t1);
 
 	}
 
@@ -268,8 +265,7 @@ public class GerenciarFesta {
 
 		JOptionPane.showMessageDialog(null, "Cliente cadastrado!!!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
-		clientes[qtdAtualCliente] = c1;
-		qtdAtualCliente++;
+		clientes.add(c1);
 
 	}
 

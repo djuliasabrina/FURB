@@ -1,12 +1,19 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Aluguel {
 	private Date data;
 	private int hora_inicio;
 	private int hora_termino;
-	private Tema temas;
-	private Cliente cliente;
+	private List<Tema> temas;
+	private List<Cliente> cliente;
 	private String endereco;
+
+	public Aluguel(){
+		temas = new ArrayList<Tema>();
+		cliente = new ArrayList<Cliente>();
+	}
 	
 	//Getters
 	public Date getData() {
@@ -21,11 +28,11 @@ public class Aluguel {
 		return hora_termino;
 	}
 	
-	public Tema getTemas() {
+	public List<Tema> getTemas() {
 		return temas;
 	}
 	
-	public Cliente getCliente() {
+	public List<Cliente> getCliente() {
 		return cliente;
 	}
 	
@@ -56,7 +63,7 @@ public class Aluguel {
 		
 	}
 	
-	public void setTemas(Tema temas) {
+	public void setTemas(List<Tema> temas) {
 		if(temas != null) {
 			this.temas = temas;
 		}else {
@@ -65,7 +72,7 @@ public class Aluguel {
 		
 	}
 	
-	public void setCliente(Cliente cliente) {
+	public void setCliente(List<Cliente> cliente) {
 		if(cliente != null) {
 			this.cliente = cliente;
 		}else {
