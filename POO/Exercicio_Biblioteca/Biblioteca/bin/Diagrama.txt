@@ -1,0 +1,13 @@
+Livro 
+- Código
+- Titulo
+
+Cliente
+- Código
+- Nome
+- E-mail
+
+Empréstimo
+- Data
+- Cliente
+- Livro
