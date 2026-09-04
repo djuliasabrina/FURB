@@ -54,6 +54,7 @@ public class Principal {
 
     }
 
+
     private void listarEmprestimos() {
         String dadosEmprestimos = "--- LISTANDO EMPRÉSTIMOS ---";
 
@@ -88,11 +89,11 @@ public class Principal {
 
         String dados = "--- LISTANDO CLIENTES ---";
         int c = 0;
-        for (Cliente cliente: clientes) {
+        for (Cliente cliente : clientes) {
             dados += "\nCliente " + (c + 1) + "\nNome: " + cliente.getNome() + "\nCódigo: "
                     + cliente.getCdCliente() + "\nE-mail: " + cliente.getEmail() + "\n";
-                    
-                    c++;
+
+            c++;
         }
 
         JOptionPane.showMessageDialog(null, dados);
@@ -146,7 +147,7 @@ public class Principal {
                     + "\nE-mail: " + clientes.get(j).getEmail() + "\n";
         }
 
-        String clienteEscolhido = JOptionPane.showInputDialog(null, dadosClientes + "Informe o código do cliente: ");
+        String clienteEscolhido = JOptionPane.showInputDialog(null, dadosClientes + "\nInforme o código do cliente: ");
 
         Cliente clienteEncontrado = null;
 
