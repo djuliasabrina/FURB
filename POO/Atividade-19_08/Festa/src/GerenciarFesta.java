@@ -14,7 +14,6 @@ public class GerenciarFesta {
 	private List<Item> itens;
 
 	public GerenciarFesta() {
-		s = new Scanner(System.in);
 		clientes = new ArrayList<Cliente>();
 		temas = new ArrayList<Tema>();
 		itens = new ArrayList<Item>();
@@ -27,7 +26,8 @@ public class GerenciarFesta {
 				+ "5 - Listar clientes\n"
 				+ "6 - Listar temas\n"
 				+ "7 - Listar alugueis\n"
-				+ "8 - Listar item";
+				+ "8 - Listar item"
+				+ "0 - Sair";
 
 		int opcao = 0;
 
@@ -85,11 +85,14 @@ public class GerenciarFesta {
 			JOptionPane.showMessageDialog(null, "Nenhum item cadastrado!", "ERRO", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		for (int i = 0; i < itens.size(); i++) {
-			System.out.println();
-			System.out.println("Item " + (i + 1));
-			System.out.println("Nome: " + itens.get(i).getNome() + "\nQuantidade: " + itens.get(i).getQtd());
+
+		String dados = "--- LISTANDO ITENS ---";
+		int i = 0;
+		for(Item item: itens){
+			dados += "\nItem " + (i + 1) + "\nNome: " + item.getNome() + "\nQuantidade: " + item.getQtd() + "\n";
+			i++;
 		}
+		JOptionPane.showMessageDialog(null, dados);
 
 	}
 
@@ -146,13 +149,13 @@ public class GerenciarFesta {
 			return;
 		}
 
-		System.out.println("---LISTANDO CLIENTES---");
-		for (int i = 0; i < clientes.size(); i++) {
-			System.out.println();
-			System.out.println("Cliente " + (i + 1));
-			System.out.println("Nome: " + clientes.get(i).getNome() + "\nTelefone: " +
-					clientes.get(i).getTelefone() + "\nData do cadastro: " + clientes.get(i).getDataPrimeira());
+		String dadosClientes = "--- LISTANDO CLIENTES ---";
+		int c = 0;
+		for(Cliente cliente: clientes){
+			dadosClientes += "\nCliente " + (c + 1) + "\nNome: " + cliente.getNome() + "\nTelefone: " + cliente.getTelefone() + "\nData do cadastro: " + cliente.getDataPrimeira() + "\n";
+			c++;
 		}
+		JOptionPane.showMessageDialog(null, dadosClientes);
 
 	}
 
