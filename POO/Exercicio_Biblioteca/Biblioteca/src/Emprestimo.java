@@ -11,12 +11,13 @@ public class Emprestimo {
     private Date dataEmprestimo;
 
     // Construtor
-    public Emprestimo(Cliente cliente) {
+    public Emprestimo(List<Livro> livros, Cliente cliente, Date dataEmprestimo) {
 
+        setLivro(livros);
         setCliente(cliente);
         setDataEmprestimo(new Date()); // data atual
 
-        livros = new ArrayList<Livro>();
+       // livros = new ArrayList<Livro>();
      
     }
 
@@ -71,13 +72,27 @@ public class Emprestimo {
         }
     }
 
-    public String imprimirDados(){
-        String dados = dataEmprestimo.toString() + "\n";
-        dados += cliente.imprimirDados() + "\n";
+    // public String imprimirDados(){
+    //     String dados = dataEmprestimo.toString() + "\n";
+    //     dados += cliente.imprimirDados() + "\n";
 
-        for(Livro l: livros){
-            dados += l.imprimirDados() + "\n";
+    //     for(Livro l: livros){
+    //         dados += l.imprimirDados() + "\n";
+    //     }
+
+    //     return dados;
+    // }
+
+    public String imprimirDados(){
+        String dados = "";
+        dados += "\n--- CLIENTE --- " + cliente.imprimirDados() + "\n";
+
+        dados += "--- LIVROS ---";
+        for(Livro livro: livros){
+            dados +=  livro.imprimirDados() + "\n";
         }
+
+        dados += "\nData do empréstimo: " + dataEmprestimo.toString() + "\n";
 
         return dados;
     }

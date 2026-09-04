@@ -55,7 +55,11 @@ public class Cliente {
     }
 
 
+    // public String imprimirDados(){
+    //     return getCdCliente() + " - " + getNome() + " (" + getEmail() + "). ";
+    // }
+
     public String imprimirDados(){
-        return getCdCliente() + " - " + getNome() + " (" + getEmail() + "). ";
+        return "\nCódigo: " + getCdCliente() + "\nNome: " + getNome() + "\nE-mail: " + getEmail() + "\n";
     }
 }

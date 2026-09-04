@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -15,7 +16,7 @@ public class Principal {
         livros = new ArrayList<Livro>();
         emprestimos = new ArrayList<Emprestimo>();
 
-        String menuPrincipal = "\n1 - Cadastrar cliente \n2 - Cadastrar livro \n3 - Fazer um emprestimo \n4 - Listar clientes \n5 - Listar livros \n6 - Listar emprestimos";
+        String menuPrincipal = "\n0 - Sair \n1 - Cadastrar cliente \n2 - Cadastrar livro \n3 - Fazer um empréstimo \n4 - Listar clientes \n5 - Listar livros \n6 - Listar empréstimos";
 
         int opcao = 0;
 
@@ -54,8 +55,13 @@ public class Principal {
     }
 
     private void listarEmprestimos() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listarEmprestimos'");
+        String dadosEmprestimos = "--- LISTANDO EMPRÉSTIMOS ---";
+
+        for (int i = 0; i < emprestimos.size(); i++) {
+            dadosEmprestimos += "\nEmpréstimo " + (i + 1) + emprestimos.get(i).imprimirDados();
+        }
+
+        JOptionPane.showMessageDialog(null, dadosEmprestimos);
     }
 
     private void listarLivros() {
@@ -65,11 +71,13 @@ public class Principal {
             return;
         }
 
-        String dados = "";
+        String dado = "--- LISTANDO LIVROS ---";
+        int l = 0;
         for (Livro livro : livros) {
-            dados += "\nCódigo: " + livro.getCdLivro() + "\nTítulo: " + livro.getTitulo();
+            dado += "\nLivro " + (l + 1) + "\nCódigo: " + livro.getCdLivro() + "\nTítulo: " + livro.getTitulo() + "\n";
+            l++;
         }
-        JOptionPane.showMessageDialog(null, dados);
+        JOptionPane.showMessageDialog(null, dado);
     }
 
     private void listarClientes() {
@@ -78,13 +86,16 @@ public class Principal {
             return;
         }
 
-        String listaClientes = "Clientes cadastrados: ";
-        for (int i = 0; i < clientes.size(); i++) {
-            listaClientes = listaClientes + "\nNome: " + clientes.get(i).getNome() + "\nCódigo: "
-                    + clientes.get(i).getCdCliente() + "\nE-mail: " + clientes.get(i).getEmail();
+        String dados = "--- LISTANDO CLIENTES ---";
+        int c = 0;
+        for (Cliente cliente: clientes) {
+            dados += "\nCliente " + (c + 1) + "\nNome: " + cliente.getNome() + "\nCódigo: "
+                    + cliente.getCdCliente() + "\nE-mail: " + cliente.getEmail() + "\n";
+                    
+                    c++;
         }
 
-        JOptionPane.showMessageDialog(null, listaClientes);
+        JOptionPane.showMessageDialog(null, dados);
     }
 
     private void cadastrarLivro() {
@@ -98,10 +109,54 @@ public class Principal {
     }
 
     private void fazerEmprestimo() {
-        String livroEscolhido = JOptionPane.showInputDialog("Informe o livro escolhido: ");
-        String cliente = JOptionPane.showInputDialog("Informe o nome do cliente: ");
 
-        Emprestimo emprestimo = new Emprestimo();
+        // LIVRO
+        List<Livro> livrosEscolhidos = new ArrayList<Livro>();
+        String dadosLivros = "";
+        // Exibindo lista de livros
+        for (int i = 0; i < livros.size(); i++) {
+            dadosLivros += "\nCódigo: " + livros.get(i).getCdLivro() + "\nTítulo: "
+                    + livros.get(i).getTitulo() + "\n";
+        }
+
+        int op;
+
+        do {
+            String livroEscolhido = JOptionPane.showInputDialog(null, dadosLivros + "\nInforme o código do livro: ");
+
+            for (Livro livro : livros) {
+                if (livro.getCdLivro() == Integer.parseInt(livroEscolhido)) {
+                    livrosEscolhidos.add(livro); // Adiciona o livro na lista de livrosEscolhidos
+                }
+            }
+
+            op = JOptionPane.showOptionDialog(null, "Deseja incluir mais algum livro: ", "ESCOLHA",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+            if (op == JOptionPane.YES_OPTION) {
+
+            }
+
+        } while (op == JOptionPane.YES_OPTION);
+
+        // CLIENTE
+        String dadosClientes = "";
+
+        for (int j = 0; j < clientes.size(); j++) {
+            dadosClientes += "\nCódigo: " + clientes.get(j).getCdCliente() + "\nNome: " + clientes.get(j).getNome()
+                    + "\nE-mail: " + clientes.get(j).getEmail() + "\n";
+        }
+
+        String clienteEscolhido = JOptionPane.showInputDialog(null, dadosClientes + "Informe o código do cliente: ");
+
+        Cliente clienteEncontrado = null;
+
+        for (Cliente cliente : clientes) {
+            if (cliente.getCdCliente() == Integer.parseInt(clienteEscolhido)) {
+                clienteEncontrado = cliente;
+            }
+        }
+
+        Emprestimo emprestimo = new Emprestimo(livrosEscolhidos, clienteEncontrado, new Date());
 
         emprestimos.add(emprestimo);
     }

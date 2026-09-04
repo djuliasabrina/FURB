@@ -41,6 +41,6 @@ public class Livro {
     }
 
     public String imprimirDados(){
-        return getCdLivro() + " - " + getTitulo();
+        return "\nCódigo: " +getCdLivro() + "\nTítulo: " + getTitulo();
     }
 }
