@@ -12,14 +12,11 @@ import model.Dono;
 public class Sistema {
 
     private Veterinario veterinario;
-    private List<Dono> donos;
-    private List<Animal> animais;
+
 
     public Sistema() {
-        
+
         veterinario = new Veterinario("Teste"); // para não deixar a lista vazia
-        donos = new ArrayList<Dono>();
-        animais = new ArrayList<Animal>();
 
         String menu = "--- MENU ---" +
                 "\n1 - Cadastrar um novo animal" +
@@ -34,7 +31,8 @@ public class Sistema {
                 "\n10 - Animais que pertencem a um dono" +
                 "\n11- Quantidade de animais que pertencem a um dono" +
                 "\n12 - Dados para contato do dono do animal" +
-                "\n13 - Cadastrar dono" + "\n";
+                "\n13 - Cadastrar dono" +
+                "\n0 - Sair" + "\n";
 
         int opcao = 0;
         do {
@@ -120,110 +118,137 @@ public class Sistema {
     }
 
     private void dadosContatosDonoAnimal() {
+        try {
+            String nomeAnimal = JOptionPane.showInputDialog("Digite o nome do animal: ");
 
-        // TODO Auto-generated method stub
+            String dados = veterinario.dadosContatosDonoAnimal(nomeAnimal);
 
-        throw new UnsupportedOperationException("Unimplemented method 'dadosContatosDonoAnimal'");
+            JOptionPane.showMessageDialog(null, "--- EXIBINDO DADOS DO DONO DO ANIMAL ---" + dados);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
 
     }
 
     private void qtdAnimaisPertencentesDono() {
+        try {
+            String nomeDono = JOptionPane.showInputDialog("Digite o nome do dono: ");
 
-        // TODO Auto-generated method stub
+            int qtd = veterinario.qtdAnimaisPertenceDono(nomeDono);
 
-        throw new UnsupportedOperationException("Unimplemented method 'qtdAnimaisPertencentesDono'");
+            JOptionPane.showMessageDialog(null, "Quantidade de animais que pertencentes ao dono: " + qtd);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
 
     }
 
     private void animaisPertencentesDono() {
+        try {
+            String nomeDono = JOptionPane.showInputDialog("Digite o nome do dono: ");
+            String dados = veterinario.animaisPertencentesDono(nomeDono);
 
-        // TODO Auto-generated method stub
-
-        throw new UnsupportedOperationException("Unimplemented method 'animaisPertencentesDono'");
+            JOptionPane.showMessageDialog(null, dados);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
 
     }
 
     private void qtdAnimaisPesoAcimaMedia() {
 
-        float media = veterinario.calcularMediaPesoTodos();
+        try {
+            float media = veterinario.calcularMediaPesoTodos();
 
-        int qtd = veterinario.qtdAnimaisPesoAcimaMedia(media);
+            int qtd = veterinario.qtdAnimaisPesoAcimaMedia(media);
 
-        JOptionPane.showMessageDialog(null, "A quantidade de animais acima da média (" + media + ") " + "é: " + qtd);
+            JOptionPane.showMessageDialog(null,
+                    "A quantidade de animais acima da média (" + media + ") " + "é: " + qtd);
 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void animalMaiorMediaPeso() {
 
-        Animal animal = veterinario.animalMaiorMediaPeso();
-        String msg = "\nNome: " + animal.getNome() + 
-        "\nEspécie: " + animal.getEspecie() +
-        "\nDono: " + animal.getDono().getNome() + 
-        "\nMédia dos pesos: " + animal.calcularMedia();
+        try {
+            Animal animal = veterinario.animalMaiorMediaPeso();
+            String msg = "\nNome: " + animal.getNome() +
+                    "\nEspécie: " + animal.getEspecie() +
+                    "\nDono: " + animal.getDono().getNome() +
+                    "\nMédia dos pesos: " + animal.calcularMedia();
 
-        JOptionPane.showMessageDialog(null, "A maior média de peso é do animal: " + msg);
+            JOptionPane.showMessageDialog(null, "A maior média de peso é do animal: " + msg);
 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void calcularMediaPesoTodosAnimal() {
 
-        float mediaTodos = veterinario.calcularMediaPesoTodos();
+        try {
+            float mediaTodos = veterinario.calcularMediaPesoTodos();
 
-        JOptionPane.showMessageDialog(null, "A média do peso de todos os animais é: " + String.format("%.2f", mediaTodos));
+            JOptionPane.showMessageDialog(null,
+                    "A média do peso de todos os animais é: " + String.format("%.2f", mediaTodos));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
 
     }
 
     private void calcularMediaPesoUmAnimal() {
-       
-        String dados = veterinario.listarAnimais();
-        String nome = JOptionPane.showInputDialog(dados + "\nDigite o nome do animal que deseja calcular a média: ");
 
-        Animal animal = veterinario.buscarPorNome(nome);
-         float media = animal.calcularMedia();
+        try {
+            String dados = veterinario.listarAnimais();
+            String nome = JOptionPane
+                    .showInputDialog(dados + "\nDigite o nome do animal que deseja calcular a média: ");
 
+            Animal animal = veterinario.buscar(nome);
+            float media = animal.calcularMedia();
 
-        JOptionPane.showMessageDialog(null, "A média do peso do animal é: " + String.format("%.2f", media));
+            JOptionPane.showMessageDialog(null, "A média do peso do animal é: " + String.format("%.2f", media));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
 
     }
 
     private void listarTodosAnimais() {
-        JOptionPane.showMessageDialog(null, veterinario.listarAnimais());
+        try {
+            JOptionPane.showMessageDialog(null, veterinario.listarAnimais());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void excluirAnimal() {
-        String dados = veterinario.listarAnimais();
-        String nome = JOptionPane.showInputDialog(dados + "\nDigite o nome do animal que deseja excluir: ");
-        veterinario.excluirAnimal(nome);
+        try {
+            String dados = veterinario.listarAnimais();
+            String nome = JOptionPane.showInputDialog(dados + "\nDigite o nome do animal que deseja excluir: ");
+            boolean sucesso = veterinario.excluirAnimal(nome);
 
-        if (veterinario.excluirAnimal(nome) == true) {
-            JOptionPane.showMessageDialog(null, "Animal excluido com sucesso!", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(null, "Erro ao excluir!", "ERRO", JOptionPane.ERROR_MESSAGE);
+            if (sucesso == true) {
+                JOptionPane.showMessageDialog(null, "Animal excluido com sucesso!", "SUCESSO",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao excluir!", "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
         }
 
     }
 
     private void alterarInformacoes() {
-
-        // TODO Auto-generated method stub
-
-        throw new UnsupportedOperationException("Unimplemented method 'alterarInformacoes'");
-
-    }
-
-    private void buscarAnimalPorNome() {
-
-        // TODO Auto-generated method stub
-
-        throw new UnsupportedOperationException("Unimplemented method 'buscarAnimalPorNome'");
-
-    }
-
-    private void cadastrarNovoAnimal() {
         try {
+            String nomeAntigo = JOptionPane.showInputDialog("Digite o nome antigo do animal: ");
+
             String nomeAnimal = JOptionPane.showInputDialog("Nome do animal: ");
             String especie = JOptionPane.showInputDialog("Espécie do animal: ");
-    
+
             // Exibindo donos cadastrados
             List<Dono> donos = veterinario.getDonos();
             String dados = "--- EXIBINDO DONOS CADASTRADOS ---";
@@ -232,23 +257,83 @@ public class Sistema {
             }
             String dono = JOptionPane.showInputDialog(dados + "\nDigite o nome do dono do animal: ");
             Dono donoEscolhido = null;
-    
+
             for (Dono nomeDono : donos) {
                 if (nomeDono.getNome().equalsIgnoreCase(dono)) {
                     donoEscolhido = nomeDono;
                     break;
                 }
             }
-    
+
             String p1 = JOptionPane.showInputDialog("Informe o peso 1 do animal: ");
             float peso1 = Float.parseFloat(p1);
-    
+
             String p2 = JOptionPane.showInputDialog("Informe o peso 2 do animal: ");
             float peso2 = Float.parseFloat(p2);
-    
+
             String p3 = JOptionPane.showInputDialog("Informe o peso 3 do animal: ");
             float peso3 = Float.parseFloat(p3);
-    
+
+            Animal animal = new Animal(nomeAnimal, especie, donoEscolhido, peso1, peso2, peso3);
+
+            boolean sucesso = veterinario.alterarInformacoes(nomeAntigo, animal);
+
+            if (sucesso == true) {
+                JOptionPane.showMessageDialog(null, "Informações alteradas com sucesso!", "SUCESSO",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro ao alterar as informações!", "ERRO",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    private void buscarAnimalPorNome() {
+        try {
+            String nome = JOptionPane.showInputDialog("Informe o nome do animal: ");
+
+            String animal = veterinario.buscarPorNome(nome);
+
+            JOptionPane.showMessageDialog(null, "Informações do animal: " + animal);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    private void cadastrarNovoAnimal() {
+        try {
+            String nomeAnimal = JOptionPane.showInputDialog("Nome do animal: ");
+            String especie = JOptionPane.showInputDialog("Espécie do animal: ");
+
+            // Exibindo donos cadastrados
+            List<Dono> donos = veterinario.getDonos();
+            String dados = "--- EXIBINDO DONOS CADASTRADOS ---";
+            for (Dono dono : donos) {
+                dados += "\nNome: " + dono.getNome() + "\nTelefone: " + dono.getTelefone() + "\n";
+            }
+            String dono = JOptionPane.showInputDialog(dados + "\nDigite o nome do dono do animal: ");
+            Dono donoEscolhido = null;
+
+            for (Dono nomeDono : donos) {
+                if (nomeDono.getNome().equalsIgnoreCase(dono)) {
+                    donoEscolhido = nomeDono;
+                    break;
+                }
+            }
+
+            String p1 = JOptionPane.showInputDialog("Informe o peso 1 do animal: ");
+            float peso1 = Float.parseFloat(p1);
+
+            String p2 = JOptionPane.showInputDialog("Informe o peso 2 do animal: ");
+            float peso2 = Float.parseFloat(p2);
+
+            String p3 = JOptionPane.showInputDialog("Informe o peso 3 do animal: ");
+            float peso3 = Float.parseFloat(p3);
+
             Animal animal = new Animal(nomeAnimal, especie, donoEscolhido, peso1, peso2, peso3);
             veterinario.cadastrarAnimal(animal);
 

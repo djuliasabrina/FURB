@@ -12,32 +12,28 @@ public class Dono {
     }
 
     // Getters
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public String getTelefone(){
+    public String getTelefone() {
         return telefone;
     }
 
     // Setters
-    public void setNome(String nome) throws IllegalArgumentException{
+    public void setNome(String nome) throws IllegalArgumentException {
         if (nome == null || nome.isBlank()) {
-            throw new IllegalArgumentException("Nome deve ser preenchido...");
-        }else if (nome.length() < 3) {
-            throw new IllegalArgumentException("Nome dever ser maior que 3 caracteres...");
+            throw new IllegalArgumentException("Nome dever ser preenchido...");
         }
-
         this.nome = nome;
     }
 
-    public void setTelefone(String telefone){
+    public void setTelefone(String telefone) throws IllegalArgumentException {
         if (telefone == null || telefone.isBlank()) {
-            throw new IllegalArgumentException("Telefone deve ser preenchido...");
-        }else if (telefone.length() < 3) {
-            throw new IllegalArgumentException("Telefone dever ser maior que 3 caracteres...");
+            throw new IllegalArgumentException("Telefone dever ser preenchido...");
         }
 
         this.telefone = telefone;
     }
+
 }

@@ -60,7 +60,23 @@ public class Veterinario {
         }
     }
 
-    public Animal buscarPorNome(String nome) {
+    public String buscarPorNome(String nome) {
+        String dados = "";
+
+        if (animais != null) {
+            for (Animal animal : animais) {
+                if (animal.getNome().equalsIgnoreCase(nome)) {
+                    dados += "\nNome: " + animal.getNome() + "\nEspécie: " + animal.getEspecie() + "\nDono: "
+                            + animal.getDono().getNome() + "\nPeso 1: " + animal.getPeso1() +
+                            "\nPeso 2: " + animal.getPeso2() + "\nPeso 3: " + animal.getPeso3() + "\n";
+                }
+            }
+        }
+
+        return dados;
+    }
+
+    public Animal buscar(String nome) {
         if (animais != null) {
             for (Animal animal : animais) {
                 if (animal.getNome().equalsIgnoreCase(nome)) {
@@ -86,7 +102,7 @@ public class Veterinario {
     }
 
     public boolean excluirAnimal(String nome) {
-        Animal animal = buscarPorNome(nome);
+        Animal animal = buscar(nome);
 
         if (animais != null) {
             animais.remove(animal);
@@ -99,9 +115,10 @@ public class Veterinario {
     public String listarAnimais() {
 
         String dados = "--- LISTANDO ---";
-        for(Animal animal: animais){
-            dados += "\nNome: " + animal.getNome() + "\nEspécie: " + animal.getEspecie() + "\nDono: " + animal.getDono().getNome() + "\nPeso 1: " + animal.getPeso1() +
-             "\nPeso 2: " + animal.getPeso2() + "\nPeso 3: " + animal.getPeso3() + "\n";
+        for (Animal animal : animais) {
+            dados += "\nNome: " + animal.getNome() + "\nEspécie: " + animal.getEspecie() + "\nDono: "
+                    + animal.getDono().getNome() + "\nPeso 1: " + animal.getPeso1() +
+                    "\nPeso 2: " + animal.getPeso2() + "\nPeso 3: " + animal.getPeso3() + "\n";
         }
 
         return dados;
@@ -143,23 +160,29 @@ public class Veterinario {
         return qtd;
     }
 
-    public List<Animal> animaisPertencentesDono(String nomeDono) {
-        List<Animal> animaisPertecence = new ArrayList<>(); // Cria uma lista de animais que pertencem aquele dono
+    public String animaisPertencentesDono(String nomeDono) {
+        List<Animal> animaisPertecence = new ArrayList<Animal>(); // Cria uma lista de animais que pertencem aquele dono
 
         for (Animal animal : animais) {
-            if (animal.getDono().getNome() == nomeDono) { // Verifica se o animal possui o mesmo nome do dono procurado
+            if (animal.getDono().getNome().equalsIgnoreCase(nomeDono)) { // Verifica se o animal possui o mesmo nome do dono procurado
                 animaisPertecence.add(animal); // Se achar adiciona na lista nova (animaisPertence)
             }
         }
 
-        return animaisPertecence; // Retorna a lista animaisPertence
+        String dados = "--- EXIBINDO ANIMAIS QUE PERTENCEM AO DONO ---";
+        for (Animal a : animaisPertecence) {
+            dados += "\nNome: " + a.getNome() + "\nEspécie: " + a.getEspecie() + "\nDono: " + a.getDono().getNome()
+                    + "\nMédia dos pesos: " + a.calcularMedia() + "\n";
+        }
+
+        return dados; // Retorna a lista animaisPertence
     }
 
     public int qtdAnimaisPertenceDono(String nome) {
         int qtd = 0;
 
         for (Animal animal : animais) {
-            if (animal.getDono().getNome() == nome) {
+            if (animal.getDono().getNome().equalsIgnoreCase(nome)) {
                 qtd++;
             }
         }
@@ -170,7 +193,7 @@ public class Veterinario {
     public String dadosContatosDonoAnimal(String nome) {
 
         for (Animal animal : animais) {
-            if (animal.getNome() == nome) {
+            if (animal.getNome().equalsIgnoreCase(nome)) {
                 return "\nNome do dono: " + animal.getDono().getNome() + "\nTelefone: "
                         + animal.getDono().getTelefone();
             }
