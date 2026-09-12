@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Animal;
+import model.Dono;
 
 public class Veterinario {
 
     private String nome;
     private List<Animal> animais;
+    private List<Dono> donos;
 
     // Construtor
     public Veterinario(String nome) throws IllegalArgumentException {
         setNome(nome);
         animais = new ArrayList<Animal>();
+        donos = new ArrayList<Dono>();
     }
 
     // Getters
@@ -23,6 +26,10 @@ public class Veterinario {
 
     public List<Animal> getAnimais() {
         return animais;
+    }
+
+    public List<Dono> getDonos() {
+        return donos;
     }
 
     // Setters
@@ -45,7 +52,7 @@ public class Veterinario {
     }
 
     // Métodos
-    public void cadastrarAnimal(Animal animal) throws IllegalArgumentException {
+    public void cadastrarAnimal(Animal animal) {
         if (animal != null) {
             animais.add(animal); // Adiciona na lista
         } else {
@@ -89,9 +96,15 @@ public class Veterinario {
         return false;
     }
 
-    public List<Animal> listarAnimais() {
+    public String listarAnimais() {
 
-        return animais;
+        String dados = "--- LISTANDO ---";
+        for(Animal animal: animais){
+            dados += "\nNome: " + animal.getNome() + "\nEspécie: " + animal.getEspecie() + "\nDono: " + animal.getDono().getNome() + "\nPeso 1: " + animal.getPeso1() +
+             "\nPeso 2: " + animal.getPeso2() + "\nPeso 3: " + animal.getPeso3() + "\n";
+        }
+
+        return dados;
     }
 
     public float calcularMediaPesoTodos() {
@@ -118,10 +131,10 @@ public class Veterinario {
         return maiorMedia;
     }
 
-    public int qtdAnimaisPesoAcimaMedia(float valorMedia){
+    public int qtdAnimaisPesoAcimaMedia(float valorMedia) {
         int qtd = 0;
 
-        for(Animal animal: animais){
+        for (Animal animal : animais) {
             if (animal.calcularMedia() > valorMedia) {
                 qtd++;
             }
@@ -130,23 +143,48 @@ public class Veterinario {
         return qtd;
     }
 
-    public List<Animal> animaisPertencentesDono(String nomeDono){
+    public List<Animal> animaisPertencentesDono(String nomeDono) {
         List<Animal> animaisPertecence = new ArrayList<>(); // Cria uma lista de animais que pertencem aquele dono
 
-        for(Animal animal: animais){
+        for (Animal animal : animais) {
             if (animal.getDono().getNome() == nomeDono) { // Verifica se o animal possui o mesmo nome do dono procurado
                 animaisPertecence.add(animal); // Se achar adiciona na lista nova (animaisPertence)
             }
         }
-        
+
         return animaisPertecence; // Retorna a lista animaisPertence
     }
 
-    public int qtdAnimaisPertenceDono(){
+    public int qtdAnimaisPertenceDono(String nome) {
         int qtd = 0;
 
+        for (Animal animal : animais) {
+            if (animal.getDono().getNome() == nome) {
+                qtd++;
+            }
+        }
+
         return qtd;
-        
+    }
+
+    public String dadosContatosDonoAnimal(String nome) {
+
+        for (Animal animal : animais) {
+            if (animal.getNome() == nome) {
+                return "\nNome do dono: " + animal.getDono().getNome() + "\nTelefone: "
+                        + animal.getDono().getTelefone();
+            }
+        }
+
+        return null;
+    }
+
+    public void cadastrarDonoAnimal(Dono dono) throws IllegalArgumentException {
+        if (dono != null) {
+            donos.add(dono);
+        } else {
+            throw new IllegalArgumentException("Dono deve ser informado!");
+        }
     }
 
 }
