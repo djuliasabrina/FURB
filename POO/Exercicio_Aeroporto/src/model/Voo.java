@@ -57,11 +57,14 @@ public class Voo {
     }
 
     public void setQtdPassageiros(int qtdPassageiros) throws IllegalArgumentException{
-        if (qtdPassageiros > 0) {
-            this.qtdPassageiros = qtdPassageiros;
-        }else{
+        if (qtdPassageiros <= 0) {
             throw new IllegalArgumentException("Quantidade de passageiros deve ser maior que 0!");
         }
+        if (this.aeronave != null && qtdPassageiros > this.aeronave.getCapMaxPassageiros()) {
+            throw new IllegalArgumentException("Quantidade de passageiros ultrapassou o limite da aeronave!");
+        }
+
+        this.qtdPassageiros = qtdPassageiros;
     }
 
     public void setHrPrevista(String hrPrevista) throws IllegalArgumentException{
@@ -87,5 +90,6 @@ public class Voo {
     }
 
     
-
+    
+    // .
 }

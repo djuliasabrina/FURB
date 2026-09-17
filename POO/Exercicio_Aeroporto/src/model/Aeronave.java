@@ -6,7 +6,7 @@ public class Aeronave {
     private String modelo;
     private int capMaxPassageiros;
 
-    public Aeronave(int cdAeronave, String modelo, int capMaxPassageiros) throws IllegalArgumentException{
+    public Aeronave(int cdAeronave, String modelo, int capMaxPassageiros) throws IllegalArgumentException {
         setCdAeronave(cdAeronave);
         setModelo(modelo);
         setCapMaxPassageiros(capMaxPassageiros);
@@ -35,29 +35,28 @@ public class Aeronave {
         }
     }
 
-    public void setModelo(String modelo) throws IllegalArgumentException{
+    public void setModelo(String modelo) throws IllegalArgumentException {
         if (modelo != null && !modelo.isBlank()) {
             this.modelo = modelo;
-        }else{
+        } else {
             throw new IllegalArgumentException("Modelo inválido...");
         }
     }
 
-    public void setCapMaxPassageiros(int capMaxPassageiros) throws IllegalArgumentException{
+    public void setCapMaxPassageiros(int capMaxPassageiros) throws IllegalArgumentException {
         // Limite = 500 passageiros
-        if (capMaxPassageiros <= 500) {
-            this.capMaxPassageiros = capMaxPassageiros;
-        }
-        
-        if (capMaxPassageiros < 0) {
+        if (capMaxPassageiros <= 0) {
             throw new IllegalArgumentException("Quantidade de passageiros não pode ser negativa!");
-        }{
-            throw new IllegalArgumentException("Quantidade de passageiros ultrapassou o limite (500)!");
         }
+
+        this.capMaxPassageiros = capMaxPassageiros;
     }
 
     // Métodos
-    public String imprimir(){
-        return "\nCódigo da aeronave: " + getCdAeronave() + "\nModelo: " + modelo + "\nCapacidade máxima de passageiros: " + getCapMaxPassageiros() + "\n";
+    public String imprimir() {
+        return "\nCódigo da aeronave: " + getCdAeronave() + "\nModelo: " + modelo
+                + "\nCapacidade máxima de passageiros: " + getCapMaxPassageiros() + "\n";
     }
+    
+    // .
 }

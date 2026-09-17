@@ -13,17 +13,16 @@ public class Aeroporto {
     private String cidade;
     private List<Voo> voos;
     private List<Aeronave> aeronaves;
-    private Aeronave aeronave;
 
     // Construtor
     public Aeroporto(int cdAeroporto, String nome, String cidade) {
         setCdAeroporto(cdAeroporto);
         setNome(nome);
         setCidade(cidade);
-        
+
         voos = new ArrayList<Voo>();
         aeronaves = new ArrayList<Aeronave>();
-        aeronave = new Aeronave(123, "Timbó", 41);
+
     }
 
     // Getters
@@ -43,7 +42,7 @@ public class Aeroporto {
         return voos;
     }
 
-    public List<Aeronave> getAeronaves(){
+    public List<Aeronave> getAeronaves() {
         return aeronaves;
     }
 
@@ -96,17 +95,36 @@ public class Aeroporto {
 
     }
 
+    public void cadastrarAeronave(Aeronave aeronave) {
+        if (aeronave == null) {
+            throw new IllegalArgumentException("Aerinave deve ser informada!");
+        }
+
+        for (Aeronave a : aeronaves) {
+            if (a.getCdAeronave() == aeronave.getCdAeronave()) {
+                throw new IllegalArgumentException("Já existem uma aeronave com esse número!");
+            }
+        }
+
+        aeronaves.add(aeronave);
+    }
+
     public String buscarVooPeloNumero(int numero) throws IllegalArgumentException {
         if (voos == null) {
             throw new IllegalArgumentException("Nenhum voo com cadastrado...");
         }
 
+        boolean achou = false;
+
         for (Voo voo : voos) {
             if (voo.getNumeroVoo() == numero) {
+                achou = true;
                 return voo.imprimir();
-            } else {
-                throw new IllegalArgumentException("Nenhum voo com esse número...");
             }
+        }
+
+        if (!achou) {
+            throw new IllegalArgumentException("Nenhum voo com esse número...");
         }
 
         return null;
@@ -134,7 +152,7 @@ public class Aeroporto {
         return false;
     }
 
-    public String listarVoos() throws IllegalArgumentException{
+    public String listarVoos() throws IllegalArgumentException {
         if (voos == null) {
             throw new IllegalArgumentException("Nenhum voo com cadastrado...");
         }
@@ -148,14 +166,14 @@ public class Aeroporto {
         return dados;
     }
 
-    public String listarAeronaves() throws IllegalArgumentException{
+    public String listarAeronaves() throws IllegalArgumentException {
         if (aeronaves == null) {
             throw new IllegalArgumentException("Nenhuma aeronave cadastrada...");
         }
 
         String dados = "-- LISTANDO AERONAVES ---";
 
-        for(Aeronave aeronave: aeronaves){
+        for (Aeronave aeronave : aeronaves) {
             dados += aeronave.imprimir();
         }
 
@@ -163,4 +181,5 @@ public class Aeroporto {
     }
 
     
+    // .
 }
