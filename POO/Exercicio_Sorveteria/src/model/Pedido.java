@@ -9,7 +9,7 @@ public class Pedido {
     private String nomeCliente;
     private List<SorveteVendido> sorvetes;
 
-    public Pedido(){
+    public Pedido(int identificador, String nomeCliente){
         setIdentificador(identificador);
         setNomeCliente(nomeCliente);
 
@@ -70,5 +70,38 @@ public class Pedido {
         return false;
     }
 
+    public int qtdTotalSorvetesExistentesPedido(){
+
+
+        return sorvetes.size();
+
+    }
+
+    public String sorvetePossuiMaiorNome(){
+        String sorveteMaiorNome = sorvetes.get(0).getNome();
+       
+
+        for(SorveteVendido sorveteVendido: sorvetes){
+            if (sorveteVendido.getNome().length() > sorveteMaiorNome.length()) {
+                sorveteMaiorNome = sorveteVendido.getNome();
+            }
+
+        }
+
+        return sorveteMaiorNome;
+
+    }
+
+    public int qtdSorvetesDaqueleSaborPedido(String sabor){
+        int qtd = 0;
+
+        for(SorveteVendido s: sorvetes){
+            if (s.getSabor().equalsIgnoreCase(sabor)) {
+                qtd++;
+            }
+        }
+        
+        return qtd;
+    }
 
 }
