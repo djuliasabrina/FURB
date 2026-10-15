@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "POO/Exercicio_Heranca/lib/junit-jupiter-api-6.1.3.jar",
+        "POO/Exercicio_Heranca/lib/junit-jupiter-engine-6.1.3.jar"
+    ]
+}
