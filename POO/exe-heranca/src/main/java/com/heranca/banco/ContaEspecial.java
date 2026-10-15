@@ -8,18 +8,12 @@ public class ContaEspecial extends ContaBancaria {
     private double saldoLimiteCredito; // Parte 2: os lugares que envolvem este atributo não precisa constar para a
                                        // solução Parte 1
 
-    public ContaEspecial(String numero, Cliente titular, double limiteCredito) throws IllegalArgumentException {
-        super(numero, titular); // Super chama o construtor da classe superior e deve ficar sempre na primeira
+	public ContaEspecial(double limiteCredito, String numero, Cliente titular, double saldo) {
+		super(numero, saldo, titular);// Super chama o construtor da classe superior e deve ficar sempre na primeira
                                 // linha
-        setLimiteCredito(limiteCredito);
-    }
-
-    public ContaEspecial(String numero, double saldo, Cliente titular, double limiteCredito)
-            throws IllegalArgumentException {
-        super(numero, saldo, titular); // Super chama o construtor da classe superior e deve ficar sempre na primeira
-                                       // linha
-        setLimiteCredito(limiteCredito);
-    }
+		setLimiteCredito(limiteCredito);
+		this.saldoLimiteCredito = limiteCredito;  
+	}
 
     public double getLimiteCredito() {
         return limiteCredito;
@@ -44,25 +38,25 @@ public class ContaEspecial extends ContaBancaria {
         }
 
         // Forma 1: (modificar método set da classe ContaBancaria)
-        // setSaldo(getSaldo() - valor);
+        setSaldo(getSaldo() - valor);
 
         // Forma 2:
-        if (valor > super.getSaldo()) {
-            double valorExcedente = valor - super.getSaldo();
-            setSaldo(0);
-            saldoLimiteCredito -= valorExcedente;
-        } else {
-            setSaldo(super.getSaldo() - valor);
-        }
+        // if (valor > super.getSaldo()) {
+        //     double valorExcedente = valor - super.getSaldo();
+        //     setSaldo(0);
+        //     saldoLimiteCredito -= valorExcedente;
+        // } else {
+        //     setSaldo(super.getSaldo() - valor);
+        // }
 
     }
 
-    @Override
-    public double getSaldo() {
-        if (saldoLimiteCredito == getLimiteCredito()) {
-            return super.getSaldo();
-        }
-        return saldoLimiteCredito * -1;
-    }
+    // @Override
+    // public double getSaldo() {
+    //     if (saldoLimiteCredito == getLimiteCredito()) {
+    //         return super.getSaldo();
+    //     }
+    //     return saldoLimiteCredito * -1;
+    // }
 
 }

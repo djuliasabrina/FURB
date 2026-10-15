@@ -49,9 +49,9 @@ public class ContaBancaria {
     }
 
     protected void setSaldo(double saldo) throws IllegalArgumentException {
-        if (saldo < 0) {
-            throw new IllegalArgumentException("Saldo informado deve ser positivo.");
-        }
+        // if (saldo < 0) {
+        //     throw new IllegalArgumentException("Saldo informado deve ser positivo.");
+        // }
         this.saldo = saldo;
     }
 
