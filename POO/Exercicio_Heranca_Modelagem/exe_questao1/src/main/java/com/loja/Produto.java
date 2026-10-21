@@ -1,6 +1,6 @@
 package com.loja;
 
-public class Produto {
+public abstract class Produto {
 
     private String nome;
     private double preco;
@@ -44,5 +44,7 @@ public class Produto {
         }
         this.mesesGarantia = mesesGarantia;
     }
+
+    public abstract double desconto(); // Todas as classes filhas são obrigadas a implementar esse método
 
 }

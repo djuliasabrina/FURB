@@ -30,6 +30,7 @@ public class Smartphone extends Produto {
         this.banda5g = banda5g;
     }
 
+    @Override 
     public double desconto() {
         if (banda5g) {
             return getPreco() * 0.05;
