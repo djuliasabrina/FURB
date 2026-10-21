@@ -1,0 +1,72 @@
+<mxfile host="65bd71144e">
+    <diagram id="qpIulacr9JdNuYDauECu" name="Page-1">
+        <mxGraphModel dx="1940" dy="684" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Produto" vertex="1">
+                    <mxGeometry height="180" width="240" x="40" y="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--2" parent="5WBAkO1xpG0P3Hc9h7z--1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;- preco : double&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;- mesesGarantia : int&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;- nome : String&lt;/span&gt;&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="54" width="240" y="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--3" parent="5WBAkO1xpG0P3Hc9h7z--1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+                    <mxGeometry height="8" width="240" y="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--4" parent="5WBAkO1xpG0P3Hc9h7z--1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ Produto(nome, preco, mesesGarantia)&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ gets/sets&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ calcularDesconto() : double&lt;/span&gt;&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="92" width="240" y="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--13" edge="1" parent="1" source="5WBAkO1xpG0P3Hc9h7z--5" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=0;" target="5WBAkO1xpG0P3Hc9h7z--2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--5" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="SmartPhone" vertex="1">
+                    <mxGeometry height="195" width="160" x="425" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--6" parent="5WBAkO1xpG0P3Hc9h7z--5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;- armazenamento : int&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;- banda5g : boolean&lt;/span&gt;&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="47" width="160" y="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--7" parent="5WBAkO1xpG0P3Hc9h7z--5" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+                    <mxGeometry height="8" width="160" y="73" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--8" parent="5WBAkO1xpG0P3Hc9h7z--5" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ SmartPhone(nome, preco, desconto, armazenamento, banda5g)&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ gets/sets&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ desconto() : double&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ getMesesGarantia() : int&lt;/span&gt;&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="114" width="160" y="81" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--9" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="NoteBook" vertex="1">
+                    <mxGeometry height="180" width="160" x="425" y="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--10" parent="5WBAkO1xpG0P3Hc9h7z--9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;- ram: int&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;- ssd : boolean&lt;/span&gt;&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="47" width="160" y="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--11" parent="5WBAkO1xpG0P3Hc9h7z--9" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+                    <mxGeometry height="8" width="160" y="73" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--12" parent="5WBAkO1xpG0P3Hc9h7z--9" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ NoteBook(nome, preco, desconto, ram, ssd)&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ gets/sets&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;scrollbar-color: rgba(121, 121, 121, 0.4) rgb(40, 42, 54);&quot;&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ desconto() : double&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;scrollbar-color: rgba(121, 121, 121, 0.4) rgb(40, 42, 54);&quot;&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ getMesesGarantia() : int&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="99" width="160" y="81" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--14" edge="1" parent="1" source="5WBAkO1xpG0P3Hc9h7z--10" style="edgeStyle=none;html=1;entryX=1;entryY=0.359;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=block;endFill=0;" target="5WBAkO1xpG0P3Hc9h7z--4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--15" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Campanha" vertex="1">
+                    <mxGeometry height="110" width="210" x="-280" y="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--17" parent="5WBAkO1xpG0P3Hc9h7z--15" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+                    <mxGeometry height="8" width="210" y="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--18" parent="5WBAkO1xpG0P3Hc9h7z--15" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ Campanha()&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ addProduto(produto) : void&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ imprimir() : String&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(192, 192, 192), rgb(255, 255, 255));&quot;&gt;+ totalPreco() : double&lt;/span&gt;&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="76" width="210" y="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--19" edge="1" parent="1" source="5WBAkO1xpG0P3Hc9h7z--1" style="edgeStyle=none;html=1;entryX=0.463;entryY=0.012;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=diamondThin;endFill=0;" target="5WBAkO1xpG0P3Hc9h7z--15">
+                    <mxGeometry relative="1" x="-0.0609" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="150" y="260"/>
+                            <mxPoint x="-185.92" y="260"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5WBAkO1xpG0P3Hc9h7z--20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="- produtos : List&amp;lt;Produto&amp;gt;" vertex="1">
+                    <mxGeometry height="30" width="195" x="-110" y="230" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

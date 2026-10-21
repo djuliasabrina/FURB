@@ -1,11 +1,20 @@
 package com.conta.banco;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Movimento {
 
     private double valor;
+    private LocalDate data;
+    private LocalTime hora;
+    private TipoMovimento tipoMovimento;
 
     public Movimento(double valor, TipoMovimento tipo) {
         setValor(valor);
+        this.tipoMovimento = tipo;
+        this.data = LocalDate.now();
+        this.hora = LocalTime.now();
     }
 
     public LocalDate getData() {
