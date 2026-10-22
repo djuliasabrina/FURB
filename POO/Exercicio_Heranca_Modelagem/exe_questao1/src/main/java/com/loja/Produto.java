@@ -45,6 +45,8 @@ public abstract class Produto {
         this.mesesGarantia = mesesGarantia;
     }
 
+    // Isso é usado quando as classes filhas são obrigadas a ter, e a classe pai não tem como implementar
     public abstract double desconto(); // Todas as classes filhas são obrigadas a implementar esse método
+    
 
 }
