@@ -3,15 +3,20 @@ package com.biblioteca;
 public class ItemBiblioteca {
 
     private String titulo;
-    private int prazoBase;
-    private double valorMultaPorDia;
     private boolean emprestado;
+    private boolean devolvido;
 
-    public ItemBiblioteca(String titulo, int prazoBase, double valorMultaPorDia, boolean emprestado) {
+    public ItemBiblioteca(String titulo, boolean emprestado, boolean devolvido) {
+        // Define o título do item usando o método setTitulo()
         setTitulo(titulo);
-        setPrazoBase(prazoBase);
-        setValorMultaPorDia(valorMultaPorDia);
-        setEmprestado(emprestado);
+
+        // O this indica que estamos acessando o atributo do objeto.
+        // O emprestado, sem this, é o parâmetro recebido no construtor.
+        this.emprestado = emprestado;
+
+        // Inicializa o atributo devolvido com o valor recebido.
+        // O this diferencia o atributo do parâmetro de mesmo nome.
+        this.devolvido = devolvido;
     }
 
     public String getTitulo() {
@@ -25,26 +30,15 @@ public class ItemBiblioteca {
         this.titulo = titulo;
     }
 
-    public int getPrazoBase() {
-        return prazoBase;
+    public boolean isDevolvido() {
+        return devolvido;
     }
 
-    public void setPrazoBase(int prazoBase) {
-        if (prazoBase <= 0) {
-            throw new IllegalArgumentException("Prazo base deve ser positivo.");
+    public void setDevolvido(boolean devolvido) {
+        if (devolvido && isEmprestado() == false) {
+            throw new IllegalArgumentException("Esse item não foi emprestado.");
         }
-        this.prazoBase = prazoBase;
-    }
-
-    public double getValorMultaPorDia() {
-        return valorMultaPorDia;
-    }
-
-    public void setValorMultaPorDia(double valorMultaPorDia) {
-        if (valorMultaPorDia < 0) {
-            throw new IllegalArgumentException("Valor da multa deve ser positiva.");
-        }
-        this.valorMultaPorDia = valorMultaPorDia;
+        this.devolvido = devolvido;
     }
 
     public boolean isEmprestado() {
@@ -55,8 +49,32 @@ public class ItemBiblioteca {
         this.emprestado = emprestado;
     }
 
+    public void emprestar() {
+        if (isEmprestado() && !isDevolvido()) {
+            throw new IllegalArgumentException("Esse item já está emprestado.");
+        }
+
+        emprestado = true;
+        devolvido = false;
+
+    }
+
+    public void devolver() {
+        if (!isEmprestado() || isDevolvido()) {
+            throw new IllegalArgumentException("Esse item não tem nenhuma pendência.");
+        }
+
+        devolvido = true;
+    }
+
     public double calcularMulta(int diasDeAtraso) {
-        return diasDeAtraso * 0.50;
+        if (diasDeAtraso < 0) {
+            throw new IllegalArgumentException("Dias de atraso não podem ser negativos.");
+        }
+        if (!isEmprestado() || !isDevolvido()) {
+            return 0;
+        }
+        return diasDeAtraso * 0.50; // Multa Padrão
     }
 
 }

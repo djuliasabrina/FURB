@@ -1,10 +1,30 @@
-public class Livro extends ItemBiblioteca{
+package com.biblioteca;
 
-    public Livro(String titulo, int prazoBase, double valorMultaPorDia, boolean emprestado){
-        super(titulo, prazoBase, valorMultaPorDia, emprestado);
+public class Livro extends ItemBiblioteca {
+
+    public Livro(String titulo, boolean emprestado, boolean devolvido) {
+        super(titulo, emprestado, devolvido);
     }
-    
-    public double calcularMulta(){
-        
+
+    @Override
+    public double calcularMulta(int diasDeAtraso) {
+
+        if (diasDeAtraso < 0) {
+            throw new IllegalArgumentException("Dias de atraso não podem ser negativos.");
+        }
+
+        if (!isEmprestado()) {
+            throw new IllegalStateException(
+                    "O item não foi emprestado.");
+        }
+
+        if (!isDevolvido()) {
+            throw new IllegalStateException(
+                    "O item ainda não foi devolvido.");
+        }
+
+        return diasDeAtraso * 0.75;
+
     }
+
 }

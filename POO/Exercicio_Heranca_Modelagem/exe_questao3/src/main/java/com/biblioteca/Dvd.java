@@ -1,18 +1,30 @@
 package com.biblioteca;
 
-public class Dvd extends ItemBiblioteca{
+public class Dvd extends ItemBiblioteca {
 
-    public Dvd(String titulo, int prazoBase, double valorMultaPorDia, boolean emprestado){
-        super(titulo, prazoBase, valorMultaPorDia, emprestado);
+    public Dvd(String titulo, boolean emprestado, boolean devolvido) {
+        super(titulo, emprestado, devolvido);
     }
 
-    @Override 
-    public double calcularMulta(int diasDeAtraso){
-        if (diasDeAtraso < getPrazoBase()) {
-            return 0;
+    @Override
+    public double calcularMulta(int diasDeAtraso) {
+
+        if (diasDeAtraso < 0) {
+            throw new IllegalArgumentException("Dias de atraso não podem ser negativos.");
         }
 
-        return  (diasDeAtraso * getValorMultaPorDia());
+        if (!isEmprestado()) {
+            throw new IllegalStateException(
+                    "O item não foi emprestado.");
+        }
+
+        if (!isDevolvido()) {
+            throw new IllegalStateException(
+                    "O item ainda não foi devolvido.");
+        }
+
+        return (diasDeAtraso * 1.20);
+
     }
-    
+
 }
