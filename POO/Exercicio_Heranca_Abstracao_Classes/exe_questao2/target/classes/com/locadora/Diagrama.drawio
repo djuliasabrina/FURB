@@ -1,0 +1,88 @@
+<mxfile host="65bd71144e">
+    <diagram id="zGpQqsqdO5VlpzGlu20w" name="Page-1">
+        <mxGraphModel dx="2322" dy="691" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-2" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Veiculo {abstrata}" vertex="1">
+                    <mxGeometry height="200" width="260" x="10" y="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-3" parent="FKEqJlhV9V8G1MKMn9sk-2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- placa : String&lt;div&gt;- modelo : String&lt;/div&gt;&lt;div&gt;- valorDiaria : double&lt;/div&gt;&lt;div&gt;- qtdDias : int&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="64" width="260" y="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-4" parent="FKEqJlhV9V8G1MKMn9sk-2" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelPerimeter=1;" value="" vertex="1">
+                    <mxGeometry height="8" width="260" y="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-5" parent="FKEqJlhV9V8G1MKMn9sk-2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Veiculo(placa : String, modelo : String, valorDiaria : double)&lt;div&gt;+ gets/sets&lt;/div&gt;&lt;div&gt;+ calcularAluguel() : double {abstrato}&lt;/div&gt;&lt;div&gt;+ imprimirDados() : String&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="102" width="260" y="98" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-6" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Moto" vertex="1">
+                    <mxGeometry height="150" width="300" x="-10" y="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-7" parent="FKEqJlhV9V8G1MKMn9sk-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- possuiCilindradas : boolean" vertex="1">
+                    <mxGeometry height="26" width="300" y="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-8" parent="FKEqJlhV9V8G1MKMn9sk-6" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelPerimeter=1;" value="" vertex="1">
+                    <mxGeometry height="8" width="300" y="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-9" parent="FKEqJlhV9V8G1MKMn9sk-6" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Moto(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;placa : String, modelo : String, valorDiaria : double, possuiCilindradas : boolean&lt;/span&gt;)&lt;div&gt;+ gets/sets&lt;/div&gt;&lt;div&gt;+ calcularAluguel() : double&lt;/div&gt;&lt;div&gt;+ imprimirDados() : String&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="90" width="300" y="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-10" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Caminhao" vertex="1">
+                    <mxGeometry height="160" width="220" x="340" y="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-11" parent="FKEqJlhV9V8G1MKMn9sk-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- qtdCapCargaToneladas : double" vertex="1">
+                    <mxGeometry height="26" width="220" y="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-12" parent="FKEqJlhV9V8G1MKMn9sk-10" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelPerimeter=1;" value="" vertex="1">
+                    <mxGeometry height="8" width="220" y="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-13" parent="FKEqJlhV9V8G1MKMn9sk-10" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Caminhao(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;placa : String, modelo : String, valorDiaria : double, qtdCapCargaToneladas : double&lt;/span&gt;)&lt;div&gt;+ gets/sets&lt;/div&gt;&lt;div&gt;+ calcularAluguel() : double&lt;/div&gt;&lt;div&gt;+ imprimirDados() : String&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="100" width="220" y="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-14" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Carro" vertex="1">
+                    <mxGeometry height="170" width="160" x="-240" y="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-15" parent="FKEqJlhV9V8G1MKMn9sk-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- qtdPortas : int" vertex="1">
+                    <mxGeometry height="26" width="160" y="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-16" parent="FKEqJlhV9V8G1MKMn9sk-14" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelPerimeter=1;" value="" vertex="1">
+                    <mxGeometry height="8" width="160" y="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-17" parent="FKEqJlhV9V8G1MKMn9sk-14" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Carro(&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;placa : String, modelo : String, valorDiaria : double, qtdPortas : int&lt;/span&gt;)&lt;div&gt;+ gets/sets&lt;/div&gt;&lt;div&gt;+ calcularAluguel() : double&lt;/div&gt;&lt;div&gt;+ imprimirDados() : String&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="110" width="160" y="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-18" edge="1" parent="1" source="FKEqJlhV9V8G1MKMn9sk-6" style="edgeStyle=none;html=1;entryX=0.492;entryY=0.98;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=block;endFill=0;" target="FKEqJlhV9V8G1MKMn9sk-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-19" edge="1" parent="1" source="FKEqJlhV9V8G1MKMn9sk-10" style="edgeStyle=none;html=1;entryX=0.681;entryY=1.029;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=block;endFill=0;" target="FKEqJlhV9V8G1MKMn9sk-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-20" edge="1" parent="1" source="FKEqJlhV9V8G1MKMn9sk-14" style="edgeStyle=none;html=1;entryX=0.181;entryY=1.01;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=block;endFill=0;" target="FKEqJlhV9V8G1MKMn9sk-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-26" edge="1" parent="1" source="FKEqJlhV9V8G1MKMn9sk-21" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;startArrow=diamond;startFill=0;" target="FKEqJlhV9V8G1MKMn9sk-2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-21" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Locadora" vertex="1">
+                    <mxGeometry height="200" width="300" x="-560" y="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-22" parent="FKEqJlhV9V8G1MKMn9sk-21" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- veiculos : List&amp;lt;Veiculo&amp;gt;" vertex="1">
+                    <mxGeometry height="26" width="300" y="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-23" parent="FKEqJlhV9V8G1MKMn9sk-21" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;labelPerimeter=1;" value="" vertex="1">
+                    <mxGeometry height="8" width="300" y="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-24" parent="FKEqJlhV9V8G1MKMn9sk-21" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ gets/sets&lt;div&gt;+ addVeiculo(veiculo : Veiculo) : void&lt;/div&gt;&lt;div&gt;+ removerVeiculo(placa : String) : void&lt;/div&gt;&lt;div&gt;+ exibirDadosTodosVeiculosLocados() : String&lt;/div&gt;&lt;div&gt;+ exibirDadosUmVeiculoLocado(placa : String) : void&lt;/div&gt;&lt;div&gt;+ maiorValorPagoVeiculosLocados() : double&lt;/div&gt;&lt;div&gt;+ exibirQtdTotalVeiculosLocados() : int&lt;/div&gt;&lt;div&gt;+ exibirValorTotalVeiculosLocados() : double&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="140" width="300" y="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-27" parent="1" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" value="1" vertex="1">
+                    <mxGeometry height="26" width="80" x="-275" y="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="FKEqJlhV9V8G1MKMn9sk-28" parent="1" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" value="0..*" vertex="1">
+                    <mxGeometry height="26" width="80" x="-70" y="150" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
